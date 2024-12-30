@@ -1,20 +1,33 @@
 const socialsBtn = document.querySelectorAll('.main__btn');
-console.log(socialsBtn);
+
+function toggle(btn) {
+
+    const userInfo = document.querySelector('.main__user-info');
+    const shareContainer = document.querySelector('.main__share');
+
+    if (btn.parentElement === userInfo) {
+        userInfo.style.display = 'none';
+        shareContainer.style.display = 'flex';
+        shareContainer.lastElementChild.focus();
+    } else {
+        userInfo.style.display = 'flex';
+        shareContainer.style.display = 'none';
+        userInfo.lastElementChild.focus();
+    }
+
+}
 
 socialsBtn.forEach(btn => {
     btn.addEventListener('click', e => {
-        // const container = btn.parentElement;
-        // container.classList.toggle("flex");
 
-        const userInfo = document.querySelector('.main__user-info');
-        const shareContainer = document.querySelector('.main__share');
+        toggle(btn);
+    })
+})
 
-        if (btn.parentElement === userInfo) {
-            userInfo.style.display = 'none';
-            shareContainer.style.display = 'flex';
-        } else {
-            userInfo.style.display = 'flex';
-            shareContainer.style.display = 'none';
+socialsBtn.forEach(btn => {
+    btn.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+            toggle(btn);
         }
     })
 })
