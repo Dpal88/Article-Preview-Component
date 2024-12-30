@@ -1,0 +1,72 @@
+/*-------- VARIABLES --------*/
+:root {
+    /* COLORS */
+    --white: #fff;
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --desaturated-dark-blue: hsl(214, 17%, 51%);
+    --grayish-blue: hsl(212, 23%, 69%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+/*-------- FONTS --------*/
+@font-face {
+    font-family: 'manrope';
+    src: url(../fonts/Manrope-VariableFont_wght.ttf)
+}
+
+/*-------- RESET --------*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/*-------- ATTRIBUTION --------*/
+
+.attribution { 
+    position: relative;
+    bottom: -40px;
+    font-size: .75rem;
+    text-align: center; 
+}
+.attribution a { 
+    color: var(--bright-purple);
+    font-weight: 600;
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+    transition: color 0.5s ease-in-out;
+}
+.attribution a::before {
+    background: var(--dark-purple);
+    content: "";
+    inset: 0;
+    position: absolute;
+    /* Can change scaleY to scaleX for different effect, along with changing origin*/
+    transform: scaleY(0);
+    transform-origin: right;
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+}
+.attribution a:hover {
+    color: var(--bright-purple);
+}
+.attribution a:hover::before {
+    /* Can change scaleY to scaleX for different effect, along with changing origin*/
+    transform: scaleY(1);
+    transform-origin: left;
+}
+
+/*-------- MAIN STYLES --------*/
+body {
+    background: var(--light-grayish-blue);
+    font-family: 'manrope', sans-serif;
+}
