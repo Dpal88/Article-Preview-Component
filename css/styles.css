@@ -91,7 +91,7 @@ body {
 }
 
 .main__content {
-    padding: 2.5rem 2rem 1.5rem;
+    padding: 2rem 2rem 1.5rem;
 }
 
 .main__heading {
@@ -160,7 +160,7 @@ body {
 
 .main__share {
     background: var(--very-dark-grayish-blue);
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     height: 4rem;
@@ -190,4 +190,35 @@ body {
 .main__flex--col {
     display: flex;
     flex-direction: column;
+}
+.hide {
+    display: none;
+}
+
+/* -------- MEDIA QUERIES ---------- */
+
+/* 768px = 48rem */
+
+@media (width >= 48rem) {
+    .main {
+        display: flex;
+        max-width: 45.625rem;
+        max-height: 17.5rem;
+    }
+    .main__img {
+        width: 20rem;
+        border-radius: 0.625rem 0 0 0.625rem;
+    }
+
+    .main__user-info {
+        height: auto;
+        padding: 0 2rem 2rem;
+    }
+
+    .main__share {
+
+        .main__btn {
+            display: none;
+        }
+    }
 }

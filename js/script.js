@@ -5,15 +5,29 @@ function toggle(btn) {
     const userInfo = document.querySelector('.main__user-info');
     const shareContainer = document.querySelector('.main__share');
 
-    if (btn.parentElement === userInfo) {
-        userInfo.style.display = 'none';
-        shareContainer.style.display = 'flex';
-        shareContainer.lastElementChild.focus();
+    if (window.screen.width < 768) {
+        if (btn.parentElement === userInfo) {
+            // userInfo.style.display = 'none';
+            // shareContainer.style.display = 'flex';
+            userInfo.classList.toggle('hide');
+            shareContainer.classList.toggle('main__flex--row');
+            shareContainer.lastElementChild.focus();
+        } else {
+            // userInfo.style.display = 'flex';
+            // shareContainer.style.display = 'none';
+            userInfo.classList.toggle('hide');
+            shareContainer.classList.toggle('main__flex--row');
+            userInfo.lastElementChild.focus();
+        }
+    } else if (btn.parentElement === userInfo) {
+        // shareContainer.style.display = 'flex';
+        shareContainer.classList.toggle('main__flex--row');
+        userInfo.lastElementChild.focus();
     } else {
-        userInfo.style.display = 'flex';
         shareContainer.style.display = 'none';
         userInfo.lastElementChild.focus();
     }
+    
 
 }
 
