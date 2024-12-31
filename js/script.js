@@ -3,33 +3,47 @@ const socialsBtn = document.querySelectorAll('.main__btn');
 function toggle(btn) {
 
     const userInfo = document.querySelector('.main__user-info');
+    let ariaExpandedValue = userInfo.lastElementChild.getAttribute("aria-expanded");
+    console.log(ariaExpandedValue);
     const shareContainer = document.querySelector('.main__share');
 
-    if (window.screen.width < 768) {
+    if (window.screen.width < 890) {
         if (btn.parentElement === userInfo) {
-            // userInfo.style.display = 'none';
-            // shareContainer.style.display = 'flex';
+
             userInfo.classList.toggle('hide');
             shareContainer.classList.toggle('main__flex--row');
+            ariaExpandedValue = "true";
+            console.log(ariaExpandedValue);
             shareContainer.lastElementChild.focus();
         } else {
-            // userInfo.style.display = 'flex';
-            // shareContainer.style.display = 'none';
+
             userInfo.classList.toggle('hide');
             shareContainer.classList.toggle('main__flex--row');
+            ariaExpandedValue = "false";
+            console.log(ariaExpandedValue);
             userInfo.lastElementChild.focus();
         }
-    } else if (btn.parentElement === userInfo) {
-        // shareContainer.style.display = 'flex';
+    } else if (shareContainer.classList.contains('main__flex--row')) {
+
         btn.firstElementChild.classList.toggle('color-dk');
         btn.lastElementChild.classList.toggle('color-lt');
+
         shareContainer.classList.toggle('main__flex--row');
+        ariaExpandedValue = "false";
         userInfo.lastElementChild.focus();
+        console.log('ariaExpanded is true')
     } else {
-        shareContainer.style.display = 'none';
+
+        btn.firstElementChild.classList.toggle('color-dk');
+        btn.lastElementChild.classList.toggle('color-lt');
+
+        shareContainer.classList.toggle('main__flex--row');
+        ariaExpandedValue = "true";
         userInfo.lastElementChild.focus();
+        console.log("ariaExpanded is false");
     }
-    
+
+    userInfo.lastElementChild.setAttribute("aria-expanded", ariaExpandedValue);
 
 }
 
@@ -53,17 +67,14 @@ window.addEventListener('resize', () => {
     const userInfo = document.querySelector('.main__user-info');
     const shareContainer = document.querySelector('.main__share');
 
-    if (window.screen.width < 768) {
+    if (window.screen.width < 890) {
         if (shareContainer.classList.contains('main__flex--row')) {
             userInfo.classList.add('hide');
+            console.log('hide');
         }
     } else {
         userInfo.classList.remove('hide');
+        console.log('remove hide');
     }
-})
 
-// instead of adding inline styles change to class?
-// add role = "button" to svg icons
-// change class names (bem?)
-// add desktop styles
-// add tab / enter event listeners for buttons
+})
