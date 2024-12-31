@@ -46,6 +46,20 @@ socialsBtn.forEach(btn => {
     })
 })
 
+window.addEventListener('resize', () => {
+
+    const userInfo = document.querySelector('.main__user-info');
+    const shareContainer = document.querySelector('.main__share');
+
+    if (window.screen.width < 768) {
+        if (shareContainer.classList.contains('main__flex--row')) {
+            userInfo.classList.add('hide');
+        }
+    } else {
+        userInfo.classList.remove('hide');
+    }
+})
+
 // instead of adding inline styles change to class?
 // add role = "button" to svg icons
 // change class names (bem?)
