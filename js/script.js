@@ -4,7 +4,6 @@ function toggle(btn) {
 
     const userInfo = document.querySelector('.main__user-info');
     let ariaExpandedValue = userInfo.lastElementChild.getAttribute("aria-expanded");
-    console.log(ariaExpandedValue);
     const shareContainer = document.querySelector('.main__share');
 
     if (window.screen.width < 890) {
@@ -13,14 +12,12 @@ function toggle(btn) {
             userInfo.classList.toggle('hide');
             shareContainer.classList.toggle('main__flex--row');
             ariaExpandedValue = "true";
-            console.log(ariaExpandedValue);
             shareContainer.lastElementChild.focus();
         } else {
 
             userInfo.classList.toggle('hide');
             shareContainer.classList.toggle('main__flex--row');
             ariaExpandedValue = "false";
-            console.log(ariaExpandedValue);
             userInfo.lastElementChild.focus();
         }
     } else if (shareContainer.classList.contains('main__flex--row')) {
@@ -31,7 +28,6 @@ function toggle(btn) {
         shareContainer.classList.toggle('main__flex--row');
         ariaExpandedValue = "false";
         userInfo.lastElementChild.focus();
-        console.log('ariaExpanded is true')
     } else {
 
         btn.firstElementChild.classList.toggle('color-dk');
@@ -40,7 +36,6 @@ function toggle(btn) {
         shareContainer.classList.toggle('main__flex--row');
         ariaExpandedValue = "true";
         userInfo.lastElementChild.focus();
-        console.log("ariaExpanded is false");
     }
 
     userInfo.lastElementChild.setAttribute("aria-expanded", ariaExpandedValue);
@@ -70,11 +65,9 @@ window.addEventListener('resize', () => {
     if (window.screen.width < 890) {
         if (shareContainer.classList.contains('main__flex--row')) {
             userInfo.classList.add('hide');
-            console.log('hide');
         }
     } else {
         userInfo.classList.remove('hide');
-        console.log('remove hide');
     }
 
 })
