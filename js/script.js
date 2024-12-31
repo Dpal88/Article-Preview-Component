@@ -21,6 +21,8 @@ function toggle(btn) {
         }
     } else if (btn.parentElement === userInfo) {
         // shareContainer.style.display = 'flex';
+        btn.firstElementChild.classList.toggle('color-dk');
+        btn.lastElementChild.classList.toggle('color-lt');
         shareContainer.classList.toggle('main__flex--row');
         userInfo.lastElementChild.focus();
     } else {
